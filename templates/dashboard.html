@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="font-family: Arial; text-align:center;">
+
+<h1>AI Fraud Detection Dashboard</h1>
+
+<h2>Fraud Transactions: {{ fraud }}</h2>
+<h2>Normal Transactions: {{ normal }}</h2>
+
+<hr>
+
+<h2>🔥 Model Accuracy: {{ accuracy }}%</h2>
+
+<h3>Confusion Matrix</h3>
+
+<table border="1" style="margin:auto; width:40%;">
+    <tr>
+        <th></th>
+        <th>Predicted Fraud</th>
+        <th>Predicted Normal</th>
+    </tr>
+    <tr>
+        <th>Actual Fraud</th>
+        <td>{{ tp }}</td>
+        <td>{{ fn }}</td>
+    </tr>
+    <tr>
+        <th>Actual Normal</th>
+        <td>{{ fp }}</td>
+        <td>{{ tn }}</td>
+    </tr>
+</table>
+
+<br>
+
+<!-- Charts -->
+<div style="width:40%; margin:auto;">
+    <canvas id="pieChart"></canvas>
+</div>
+
+<br>
+
+<div style="width:50%; margin:auto;">
+    <canvas id="barChart"></canvas>
+</div>
+
+<script>
+let fraud = {{ fraud }};
+let normal = {{ normal }};
+
+// PIE CHART
+new Chart(document.getElementById("pieChart"), {
+    type: "pie",
+    data: {
+        labels: ["Fraud", "Normal"],
+        datasets: [{
+            data: [fraud, normal],
+            backgroundColor: ["red", "green"]
+        }]
+    }
+});
+
+// BAR CHART
+new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: {
+        labels: ["Fraud", "Normal"],
+        datasets: [{
+            label: "Transactions",
+            data: [fraud, normal],
+            backgroundColor: ["red", "green"]
+        }]
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+TransactionID,Amount,OldBalance,NewBalance,Status
+1,1000,5000,4000,Normal
+2,5000,10000,5000,Fraud
+3,200,3000,2800,Normal
+4,7000,9000,2000,Fraud
+5,1500,6000,4500,Normal
+6,8000,12000,4000,Fraud
+7,300,2000,1700,Normal
+8,9000,15000,6000,Fraud
+9,1200,5000,3800,Normal
+10,10000,20000,10000,Fraud

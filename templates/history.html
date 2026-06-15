@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction History</title>
+    <style>
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #333;
+            color: white;
+        }
+
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2 style="text-align:center;">Transaction History</h2>
+
+<table>
+    <tr>
+        <th>DateTime</th>
+        <th>Amount</th>
+        <th>Old Balance</th>
+        <th>New Balance</th>
+        <th>Result</th>
+    </tr>
+
+    {% for row in rows %}
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+        <td>{{ row[4] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
